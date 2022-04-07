@@ -31,6 +31,8 @@ Ce programme est réalisé en dart avec la méthode POO
 
 ![POO](images/poo.png)
   
+Les méthodes des classes sont commentées je vous invite à aller voir le code pour plus de détails sur les méthodes
+  
 ## Fonctionnalités
 
 Ce logiciel permet de :
