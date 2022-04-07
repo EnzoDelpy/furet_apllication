@@ -11,50 +11,70 @@ Ce logiciel a été réalisé dans le cadre d'un projet scolaire.
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Credits](#credits)
+- [Fonctionnalités](#credits)
 - [License](#license)
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+Tout d'abord vous devez créer une base de donnée et un utilisateur qui aura les droits sur cette base de donnée, ensuite lancez le logiciel et entrez les identifiants de la base de donnée que vous venez de créer, choisissez l'option pour créer automatiquement les tables.
+Le logiciel est prêt à être utilisé
 
 ## A propos du projet
-
-Provide instructions and examples for use. Include screenshots as needed.
-
+  
 MCD de la base de donnée : 
 
 ![MCD](images/mcd.png)
 
-## Credits
+Structure du programme:
 
-List your collaborators, if any, with links to their GitHub profiles.
+Ce programme est réalisé en dart avec la méthode POO
 
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
+![POO](images/poo.png)
+  
+## Fonctionnalités
 
-If you followed tutorials, include links to those here as well.
-
-## License
-
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
-
----
-
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-
-## Badges
-
-![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-
-Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-
-## Features
-
-If your project has a lot of features, list them here.
-
-## How to Contribute
-
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
+Ce logiciel permet de :
+  Se connecter à une base de donnée
+  Créer les tables manquantes
+  Modifier les données de chaques tables en fonction d'un id
+  Ajouter des données dans chaques tables
+  Supprimé des données dans chaques tables en fonction d'un id
+  Afficher un produit en fonction de :
+  - l'id d'un produit
+  - l'id d'un auteur
+  - l'id d'un éditeur
+  - nom d'un produit
+  - nom d'un auteur
+  - nom et prénom d'un auteur
+  - nom d'un éditeur
+  - un prix maximum
+  - un prix minimum
+  - un prix maximum et un prix minimum
+  - une année de paruption maximum
+  - une année de paruption minimum 
+  - une année de paruption maximum et minimum 
+  - un type
+  Trier l'affichage des produits en fonction de :
+  - prix croissant
+  - prix décroissant
+  - année croissante
+  - année décroissante
+  Afficher les données de la table Creer en fonction de :
+  - l'id d'un auteur
+  - l'id d'un produit
+  - nom d'un auteur
+  - nom d'un produit
+  Affichage des auteurs en fonction de :
+  - l'id d'un auteur
+  - l'id d'un produit
+  - nom d'un auteur
+  - nom et prénom d'un auteur
+  - nom d'un produit
+  Affichage de éditeurs en fonction de :
+  - l'id d'un éditeur
+  - l'id d'un produit
+  - nom d'un éditeur
+  - nom d'un produit
 
 ## Tests
 
