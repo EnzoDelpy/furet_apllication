@@ -5,6 +5,7 @@ class Auteur {
 
   Auteur(this._idAuteur, this._nomAuteur, this._prenomAuteur);
 
+  //Getter et Setter
   int getIdAuteur() {
     return this._idAuteur;
   }

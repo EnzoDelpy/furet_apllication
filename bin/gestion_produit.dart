@@ -14,6 +14,7 @@ class GestionProduit {
     return this._lesProduits;
   }
 
+//Recupère tout les produits présents dans la table Produit et les mets dans lesProduits
   Future<void> initProduit() async {
     _lesProduits = [];
     MySqlConnection conn = await _laBDD.connexion();
@@ -26,6 +27,8 @@ class GestionProduit {
     }
   }
 
+//Ajoute un produit à la table Produit à partir d'un objet Produit en paramètre retourne un bool
+//pour savoir si l'opération a été éffectué
   Future<bool> ajouteProduit(Produit produit) async {
     bool aAjouter = true;
     try {
@@ -57,6 +60,8 @@ class GestionProduit {
     return aAjouter;
   }
 
+//Supprime un Produit à partir d'un id donné en paramètre retourne un bool
+//pour savoir si l'opération a été éffectué
   Future<bool> supprimeProduit(int id) async {
     bool aAjouter = true;
     GestionCreer gCreer = GestionCreer();
@@ -73,6 +78,8 @@ class GestionProduit {
     return aAjouter;
   }
 
+//Supprime un Produit à partir d'un id d'éditeur donné en paramètre retourne un bool
+//pour savoir si l'opération a été éffectué
   Future<bool> supprimeProduitParEditeur(int id) async {
     bool aAjouter = true;
     GestionCreer gCreer = GestionCreer();
@@ -93,6 +100,8 @@ class GestionProduit {
     return aAjouter;
   }
 
+//Modifie le nom d'un produit dans la table Produit à partir d'un id et d'un nouveau nom
+//donné en paramètre retourne un bool pour savoir si l'opération a été éffectué
   Future<bool> modifieNomProduit(int id, String nom) async {
     bool aAjouter = true;
     try {
@@ -114,6 +123,8 @@ class GestionProduit {
     return aAjouter;
   }
 
+//Modifie l'année de paruption d'un produit dans la table Produit à partir d'un id et d'une nouvelle année
+//donné en paramètre retourne un bool pour savoir si l'opération a été éffectué
   Future<bool> modifieAnneeProduit(int id, int annee) async {
     bool aAjouter = true;
     try {
@@ -135,6 +146,8 @@ class GestionProduit {
     return aAjouter;
   }
 
+//Modifie le prix d'un produit dans la table Produit à partir d'un id et d'une nouvelle année
+//donné en paramètre retourne un bool pour savoir si l'opération a été éffectué
   Future<bool> modifiePrixProduit(int id, double prix) async {
     bool aAjouter = true;
     try {
@@ -156,6 +169,8 @@ class GestionProduit {
     return aAjouter;
   }
 
+//Modifie la quantité d'un produit dans la table Produit à partir d'un id et d'une quantité
+//donné en paramètre retourne un bool pour savoir si l'opération a été éffectué
   Future<bool> modifieQuantiteProduit(int id, int quantite) async {
     bool aAjouter = true;
     try {
@@ -177,6 +192,8 @@ class GestionProduit {
     return aAjouter;
   }
 
+//Modifie la quantité d'un produit dans la table Produit à partir d'un id et d'une quantité
+//donné en paramètre retourne un bool pour savoir si l'opération a été éffectué
   Future<bool> modifieTypeProduit(int id, String type) async {
     bool aAjouter = true;
     try {
@@ -198,6 +215,8 @@ class GestionProduit {
     return aAjouter;
   }
 
+//Modifie l'id d'un éditeur dans la table Produit à partir d'un id et d'un nouveau id
+//donné en paramètre retourne un bool pour savoir si l'opération a été éffectué
   Future<bool> modifieIdEditeur(int id, int idEditeur) async {
     bool aAjouter = true;
     try {
@@ -219,6 +238,7 @@ class GestionProduit {
     return aAjouter;
   }
 
+//Retourne la liste de tout les id present dans la table Produit
   Future<List<int>> getAllId() async {
     List<int> lesId = [];
     await initProduit();
@@ -228,6 +248,8 @@ class GestionProduit {
     return lesId;
   }
 
+//Retourne une liste contenant les id des produits ayant un id d'éditeur correspondant à la liste d'id
+//donné en paramètre
   Future<List<int>> getAllIdParEditeur(int id) async {
     List<int> lesId = [];
     await initProduit();
@@ -239,6 +261,8 @@ class GestionProduit {
     return lesId;
   }
 
+//Retourne une liste contenant les id des éditeurs ayant un id correspondant à la liste d'id
+//donné en paramètre
   Future<List<int>> getIdEditeurParId(int id) async {
     List<int> lesEditeurs = [];
     await initProduit();
@@ -250,6 +274,8 @@ class GestionProduit {
     return lesEditeurs;
   }
 
+//Retourne une liste contenant les id des éditeurs ayant un nom de produit correspondant au nom
+//donné en paramètre
   Future<List<int>> getIdEditeurParNom(String nom) async {
     List<int> lesEditeurs = [];
     await initProduit();
@@ -261,6 +287,8 @@ class GestionProduit {
     return lesEditeurs;
   }
 
+//Retourne une liste contenant les id des produits ayant un nom de produit correspondant au nom
+//donné en paramètre
   Future<List<int>> getIdParNom(String nom) async {
     List<int> lesEditeurs = [];
     await initProduit();
@@ -272,6 +300,8 @@ class GestionProduit {
     return lesEditeurs;
   }
 
+//Retourne une liste de Produits contenant les Produits ayant un id de produit présent dans la liste d'id
+//donné en paramètre
   Future<List<Produit>> getProduitParId(List<int> lesId) async {
     List<Produit> lesProduits = [];
     await initProduit();
@@ -283,6 +313,8 @@ class GestionProduit {
     return lesProduits;
   }
 
+//Retourne une liste de Produits contenant les Produits ayant un type de produit correspondant à celui
+//donné en paramètre
   Future<List<Produit>> getProduitParType(String type) async {
     List<Produit> lesProduits = [];
     await initProduit();
@@ -294,6 +326,8 @@ class GestionProduit {
     return lesProduits;
   }
 
+//Retourne une liste de Produits contenant les Produits ayant un nom de produit correspondant à celui
+//donné en paramètre
   Future<List<Produit>> getProduitParNom(String nom) async {
     List<Produit> lesProduits = [];
     await initProduit();
@@ -305,6 +339,8 @@ class GestionProduit {
     return lesProduits;
   }
 
+//Retourne une liste de Produits contenant les Produits ayant un id d'éditeur correspondant à celui
+//donné en paramètre
   Future<List<Produit>> getProduitParIdEditeur(List<int> lesId) async {
     List<Produit> lesProduits = [];
     await initProduit();
@@ -316,6 +352,8 @@ class GestionProduit {
     return lesProduits;
   }
 
+//Tri une liste de produit donnée en parametre et retourne une liste contenant uniquement les produits
+//ayant un type correspondant à celui donné en paramètre
   List<Produit> triProduitParType(List<Produit> lesProduits, String type) {
     List<Produit> lesProduitsTrie = [];
     for (Produit elt in lesProduits) {
@@ -326,6 +364,8 @@ class GestionProduit {
     return lesProduitsTrie;
   }
 
+//Tri une liste de produit donnée en parametre et retourne une liste contenant uniquement les produits
+//ayant un prix inférieur ou égal à celui donné en paramètre
   List<Produit> triPrixMax(List<Produit> lesProduits, double prixMax) {
     List<Produit> lesProduitsTrie = [];
     for (Produit elt in lesProduits) {
@@ -336,6 +376,8 @@ class GestionProduit {
     return lesProduitsTrie;
   }
 
+//Tri une liste de produit donnée en parametre et retourne une liste contenant uniquement les produits
+//ayant un prix supérieur ou égal à celui donné en paramètre
   List<Produit> triPrixMin(List<Produit> lesProduits, double prixMin) {
     List<Produit> lesProduitsTrie = [];
     for (Produit elt in lesProduits) {
@@ -346,11 +388,15 @@ class GestionProduit {
     return lesProduitsTrie;
   }
 
+//Tri une liste de produit donnée en parametre et retourne une liste contenant uniquement les produits
+//ayant un prix inférieur ou égale et un prix supérieur ou égal à ceux donné en paramètre
   List<Produit> triPrixMinMax(
       List<Produit> lesProduits, double prixMin, double prixMax) {
     return triPrixMin(triPrixMax(lesProduits, prixMax), prixMin);
   }
 
+//Tri une liste de produit donnée en parametre et retourne une liste contenant uniquement les produits
+//ayant une année de paruption inférieure ou égale à celle donné en paramètre
   List<Produit> triAnneeMax(List<Produit> lesProduits, int anneeMax) {
     List<Produit> lesProduitsTrie = [];
     for (Produit elt in lesProduits) {
@@ -361,6 +407,8 @@ class GestionProduit {
     return lesProduitsTrie;
   }
 
+//Tri une liste de produit donnée en parametre et retourne une liste contenant uniquement les produits
+//ayant une année de paruption supérieur ou égale à celle donné en paramètre
   List<Produit> triAnneeMin(List<Produit> lesProduits, int anneeMin) {
     List<Produit> lesProduitsTrie = [];
     for (Produit elt in lesProduits) {
@@ -371,11 +419,15 @@ class GestionProduit {
     return lesProduitsTrie;
   }
 
+//Tri une liste de produit donnée en parametre et retourne une liste contenant uniquement les produits
+//ayant une année de paruption inférieure ou égale à celle donné en paramètre et 
+//une année de paruption supérieur ou égale à celle donné en paramètre
   List<Produit> triAnneeMinMax(
       List<Produit> lesProduits, int anneeMin, int anneeMax) {
     return triAnneeMax(triAnneeMin(lesProduits, anneeMin), anneeMax);
   }
 
+//Retourne la liste donné en paramètre en la triant par ordre croissant du prix des produits
   List<Produit> triPrixCroissant(List<Produit> lesProduits) {
     for (int k = 0; k < lesProduits.length; k++) {
       double prixMin = lesProduits[k].getPrixProduit();
@@ -392,6 +444,7 @@ class GestionProduit {
     return lesProduits;
   }
 
+//Retourne la liste donné en paramètre en la triant par ordre décroissant du prix des produits
   List<Produit> triPrixDecroissant(List<Produit> lesProduits) {
     for (int k = 0; k < lesProduits.length; k++) {
       double prixMax = lesProduits[k].getPrixProduit();
@@ -408,6 +461,7 @@ class GestionProduit {
     return lesProduits;
   }
 
+//Retourne la liste donné en paramètre en la triant par ordre croissant des années de paruption des produits
   List<Produit> triAnneeCroissant(List<Produit> lesProduits) {
     for (int k = 0; k < lesProduits.length; k++) {
       int anneeMin = lesProduits[k].getAnneeParuptionProduit();
@@ -424,6 +478,7 @@ class GestionProduit {
     return lesProduits;
   }
 
+//Retourne la liste donné en paramètre en la triant par ordre décroissant des années de paruption des produits
   List<Produit> triAnneeDecroissant(List<Produit> lesProduits) {
     for (int k = 0; k < lesProduits.length; k++) {
       int anneeMax = lesProduits[k].getAnneeParuptionProduit();

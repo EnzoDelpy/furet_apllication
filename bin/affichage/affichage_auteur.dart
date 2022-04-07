@@ -1,7 +1,4 @@
-import 'dart:io';
-
 import '../auteur.dart';
-import 'affichage_principal.dart';
 import 'affichage_produit.dart';
 import 'fonctions.dart';
 

@@ -4,9 +4,13 @@ import 'main_fonction.dart';
 main(List<String> args) async {
   MainFonction mainFonction = MainFonction();
   int choix = 0;
-  while (choix != 5 && await mainFonction.testConnexionBDD()) {
+  print(AffichagePrincipal.afficheConnexion());
+  AffichagePrincipal.getConnexionDB();
+  while (choix != 5 &&
+      await mainFonction.testConnexionBDD() &&
+      await mainFonction.checkTable()) {
     print(AffichagePrincipal.afficheMenu());
-    choix = AffichagePrincipal.choixMenus(5);
+    choix = AffichagePrincipal.choixMenus(6);
     if (choix == 1) {
       await mainFonction.choix1();
     } else if (choix == 2) {
@@ -15,9 +19,12 @@ main(List<String> args) async {
       await mainFonction.choix3();
     } else if (choix == 4) {
       await mainFonction.choix4();
+    } else if (choix == 6) {
+      await mainFonction.choix6();
+      choix = 5;
     }
   }
-  if (choix != 5) {
+  if (!await mainFonction.testConnexionBDD()) {
     print(AffichagePrincipal.connexionImpossible());
   }
 }

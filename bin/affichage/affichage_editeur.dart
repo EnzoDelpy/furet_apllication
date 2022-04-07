@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import '../editeur.dart';
 import 'affichage_produit.dart';
 import 'fonctions.dart';

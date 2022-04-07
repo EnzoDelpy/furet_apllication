@@ -13,10 +13,28 @@ import 'gestion_editeur.dart';
 import 'gestion_produit.dart';
 import 'produit.dart';
 
+//Chaque méthode correspond à un choix de l'utilisateur
 class MainFonction {
   Future<bool> testConnexionBDD() async {
     BDD laBdd = BDD();
     return laBdd.testConnexion();
+  }
+
+  Future<bool> checkTable() async {
+    BDD laBdd = BDD();
+    if ((await laBdd.checkTableManquantes()).isNotEmpty) {
+      print(AffichagePrincipal.afficheTableManquantes());
+      int choix = AffichagePrincipal.choixMenus(2);
+      if (choix == 1) {
+        await laBdd.createTables();
+        print(AffichagePrincipal.afficheCreation());
+        await Future.delayed(Duration(seconds: 1));
+        return true;
+      } else {
+        return false;
+      }
+    }
+    return true;
   }
 
   int choixDeux() {
@@ -365,20 +383,26 @@ class MainFonction {
   }
 
   Future<void> choix1_3(GestionProduit gProduit) async {
-    List<String> lesValeurs =
-        AffichageProduit.ajouteProduit(await getListIdEditeur());
-    if (!AffichagePrincipal.confirmationAjout()) {
-      return;
+    if ((await getListIdEditeur()).isNotEmpty) {
+      List<String> lesValeurs =
+          AffichageProduit.ajouteProduit(await getListIdEditeur());
+      if (!AffichagePrincipal.confirmationAjout()) {
+        return;
+      }
+      print(AffichagePrincipal.afficheAjoutProduit(await gProduit.ajouteProduit(
+          Produit(
+              0,
+              lesValeurs[0],
+              int.parse(lesValeurs[1]),
+              double.parse(lesValeurs[2]),
+              int.parse(lesValeurs[3]),
+              lesValeurs[4],
+              int.parse(lesValeurs[5])))));
+    } else {
+      print(
+          "\x1B[31mImpossible d'ajouter un produit car il n'y a pas d'éditeur existant\x1B[0m");
+      await Future.delayed(Duration(seconds: 1));
     }
-    print(AffichagePrincipal.afficheAjoutProduit(await gProduit.ajouteProduit(
-        Produit(
-            0,
-            lesValeurs[0],
-            int.parse(lesValeurs[1]),
-            double.parse(lesValeurs[2]),
-            int.parse(lesValeurs[3]),
-            lesValeurs[4],
-            int.parse(lesValeurs[5])))));
   }
 
   Future<void> choix1_4(GestionProduit gProduit) async {
@@ -504,17 +528,31 @@ class MainFonction {
   }
 
   Future<void> choix2_3(GestionCreer gCreer) async {
-    List<String> lesValeurs = AffichageCreer.ajouteCreer(
-        await getListIdAuteur(), await getListIdProduit());
-    if (!AffichagePrincipal.confirmationAjout()) {
-      return;
+    if ((await getListIdAuteur()).isNotEmpty &&
+        (await getListIdProduit()).isNotEmpty) {
+      List<String> lesValeurs = AffichageCreer.ajouteCreer(
+          await getListIdAuteur(), await getListIdProduit());
+      if (!AffichagePrincipal.confirmationAjout()) {
+        return;
+      }
+      print(AffichagePrincipal.afficheAjoutProduit(await gCreer.ajouteCreer(
+          Creer(int.parse(lesValeurs[0]), int.parse(lesValeurs[1])))));
+      await Future.delayed(Duration(seconds: 1));
+    } else {
+      if ((await getListIdAuteur()).isEmpty) {
+        print(
+            "\x1B[31mImpossible d'ajouter une valeur dans Creer car il n'y a pas d'auteur existant\x1B[0m");
+      }
+      if ((await getListIdProduit()).isEmpty) {
+        print(
+            "\x1B[31mImpossible d'ajouter une valeur dans Creer car il n'y a pas de produit existant\x1B[0m");
+      }
+      await Future.delayed(Duration(seconds: 2));
     }
-    print(AffichagePrincipal.afficheAjoutProduit(await gCreer.ajouteCreer(
-        Creer(int.parse(lesValeurs[0]), int.parse(lesValeurs[1])))));
-    await Future.delayed(Duration(seconds: 1));
   }
 
   Future<void> choix2_4(GestionCreer gCreer) async {
+    print(await getListIdAuteur());
     int idAuteur = AffichageAuteur.getIdAuteur(await getListIdAuteur());
     int idProduit = AffichageAuteur.getIdAuteur(await getListIdAuteur());
     if (!AffichagePrincipal.confirmationSuppression()) {
@@ -841,6 +879,13 @@ class MainFonction {
       await choix4_3(gEditeur);
     } else if (choix2 == 4) {
       await choix4_4(gEditeur);
+    }
+  }
+
+  Future<void> choix6() async {
+    if (AffichagePrincipal.confirmationSuppressionTables()) {
+      BDD laBDD = BDD();
+      await laBDD.dropAllTable();
     }
   }
 }

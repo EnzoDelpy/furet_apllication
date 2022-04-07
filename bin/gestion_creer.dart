@@ -13,6 +13,7 @@ class GestionCreer {
     return this._lesCreer;
   }
 
+//Recupère tout les creer présent dans la table Créer et les mets dans lesCreer
   Future<void> initCreer() async {
     _lesCreer = [];
     MySqlConnection conn = await _laBDD.connexion();
@@ -24,6 +25,8 @@ class GestionCreer {
     }
   }
 
+//Ajoute un creer à la table Creer à partir d'un objet Creer en paramètre retourne un bool
+//pour savoir si l'opération a été éffectué
   Future<bool> ajouteCreer(Creer creer) async {
     bool aAjouter = true;
     try {
@@ -41,6 +44,8 @@ class GestionCreer {
     return aAjouter;
   }
 
+//Supprime un Creer à partir d'un id donné en paramètre retourne un bool
+//pour savoir si l'opération a été éffectué
   Future<bool> supprimeCreer(int idAuteur, int idProduit) async {
     bool aAjouter = true;
     try {
@@ -62,6 +67,8 @@ class GestionCreer {
     return aAjouter;
   }
 
+//Supprime toutes les valeurs contenant un id de produit donnée en paramètre retourne un bool
+//pour savoir si l'opération a été éffectué
   Future<bool> supprimeToutProduit(int idProduit) async {
     bool aAjouter = true;
     try {
@@ -82,6 +89,8 @@ class GestionCreer {
     return aAjouter;
   }
 
+//Supprime toutes les valeurs contenant un id d'auteur donnée en paramètre retourne un bool
+//pour savoir si l'opération a été éffectué
   Future<bool> supprimeToutAuteur(int idAuteur) async {
     bool aAjouter = true;
     try {
@@ -100,6 +109,8 @@ class GestionCreer {
     return aAjouter;
   }
 
+//Modifie l'id d'un produit dans la table Creer à partir d'un id d'auteur, un id de produit et un nouveau id de produit
+//donné en paramètre retourne un bool pour savoir si l'opération a été éffectué
   Future<bool> modifieProduitCreer(
       int idAuteur, int idProduit, int nouvIdProduit) async {
     bool aAjouter = true;
@@ -126,6 +137,8 @@ class GestionCreer {
     return aAjouter;
   }
 
+//Modifie l'id d'un auteur dans la table Creer à partir d'un id d'auteur, un id de produit et un nouveau id d'auteur
+//donné en paramètre retourne un bool pour savoir si l'opération a été éffectué
   Future<bool> modifieAuteurCreer(
       int idAuteur, int idProduit, int nouvIdAuteur) async {
     bool aAjouter = true;
@@ -150,6 +163,7 @@ class GestionCreer {
     return aAjouter;
   }
 
+//Retourne une liste d'entier contennant tout les id d'auteur présent dans la table Creer
   Future<List<int>> getAllIdAuteur() async {
     List<int> lesId = [];
     await initCreer();
@@ -159,6 +173,7 @@ class GestionCreer {
     return lesId;
   }
 
+//Retourne une liste d'entier contennant tout les id de produit présent dans la table Creer
   Future<List<int>> getAllIdProduit() async {
     List<int> lesId = [];
     await initCreer();
@@ -168,6 +183,7 @@ class GestionCreer {
     return lesId;
   }
 
+//Retourne une liste contenant les id d'auteur qui sont associer à l'id produit donnée en paramètre
   Future<List<int>> getIdAuteurParIdProduit(List<int> id) async {
     List<int> lesId = [];
     await initCreer();
@@ -179,6 +195,7 @@ class GestionCreer {
     return lesId;
   }
 
+//Retourne une liste contenant les id d'auteur qui sont associer à l'id produit donnée en paramètre
   Future<List<int>> getIdProduitParIdAuteur(List<int> id) async {
     List<int> lesId = [];
     await initCreer();
@@ -190,6 +207,7 @@ class GestionCreer {
     return lesId;
   }
 
+//Retourne une liste contenant les Creer qui ont pour idAuteur l'id donné en paramètre
   Future<List<Creer>> getCreerParIdAuteur(List<int> id) async {
     List<Creer> lesCreer = [];
     await initCreer();
@@ -201,6 +219,7 @@ class GestionCreer {
     return lesCreer;
   }
 
+//Retourne une liste contenant les Creer qui ont pour idProduit l'id donné en paramètre
   Future<List<Creer>> getCreerParIdProduit(List<int> id) async {
     List<Creer> lesCreer = [];
     await initCreer();

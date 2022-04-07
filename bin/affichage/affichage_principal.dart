@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'fonctions.dart';
+import '../settingsConnexion.dart' as settingsCo;
 
 class AffichagePrincipal {
   static String afficheMenu() {
@@ -27,6 +28,55 @@ class AffichagePrincipal {
         "|   3. Gestion de Auteur                                                |\n" +
         "|   4. Gestion d'Editeur                                                |\n" +
         "|   5. Quitter                                                          |\n" +
+        "|   6. Quitter et supprimer toutes les tables                           |\n" +
+        "|                                                                       |\n" +
+        "=========================================================================\n";
+    return affichage;
+  }
+
+  static String afficheConnexion() {
+    String affichage = "\x1B[2J\x1B[0;0H\n" +
+        "                 ███████ ██    ██ ██████  ███████ ████████   \n" +
+        "                 ██      ██    ██ ██   ██ ██         ██          \n" +
+        "                 █████   ██    ██ ██████  █████      ██          \n" +
+        "                 ██      ██    ██ ██   ██ ██         ██          \n" +
+        "                 ██       ██████  ██   ██ ███████    ██          \n" +
+        "                                                                 \n" +
+        "                                                                 \n" +
+        "          ██████  ███████ ███████ ████████ ██  ██████  ███    ██ \n" +
+        "         ██       ██      ██         ██    ██ ██    ██ ████   ██ \n" +
+        "         ██   ███ █████   ███████    ██    ██ ██    ██ ██ ██  ██ \n" +
+        "         ██    ██ ██           ██    ██    ██ ██    ██ ██  ██ ██ \n" +
+        "          ██████  ███████ ███████    ██    ██  ██████  ██   ████ \n" +
+        "=========================================================================\n" +
+        "|                                                                       |\n" +
+        "|                    Connexion à la base de donnée                      |\n" +
+        "|                                                                       |\n" +
+        "=========================================================================\n";
+    return affichage;
+  }
+
+  static String afficheTableManquantes() {
+    String affichage = "\x1B[2J\x1B[0;0H\n" +
+        "                 ███████ ██    ██ ██████  ███████ ████████   \n" +
+        "                 ██      ██    ██ ██   ██ ██         ██          \n" +
+        "                 █████   ██    ██ ██████  █████      ██          \n" +
+        "                 ██      ██    ██ ██   ██ ██         ██          \n" +
+        "                 ██       ██████  ██   ██ ███████    ██          \n" +
+        "                                                                 \n" +
+        "                                                                 \n" +
+        "          ██████  ███████ ███████ ████████ ██  ██████  ███    ██ \n" +
+        "         ██       ██      ██         ██    ██ ██    ██ ████   ██ \n" +
+        "         ██   ███ █████   ███████    ██    ██ ██    ██ ██ ██  ██ \n" +
+        "         ██    ██ ██           ██    ██    ██ ██    ██ ██  ██ ██ \n" +
+        "          ██████  ███████ ███████    ██    ██  ██████  ██   ████ \n" +
+        "=========================================================================\n" +
+        "|                           Tables Manquantes                           |\n" +
+        "|                                                                       |\n" +
+        "|   Veuillez choisir une action                                         |\n" +
+        "|                                                                       |\n" +
+        "|   1. Créer les tables manquantes                                      |\n" +
+        "|   2. Quitter                                                          |\n" +
         "|                                                                       |\n" +
         "=========================================================================\n";
     return affichage;
@@ -208,6 +258,22 @@ class AffichagePrincipal {
     return false;
   }
 
+  static bool confirmationSuppressionTables() {
+    String confirmation = "";
+    while (confirmation != "oui" && confirmation != "non") {
+      print(
+          "Voulez vous vraiment effectuer la supression des tables ?(oui/non)");
+      confirmation = MesFonctions.saisirString();
+      if (confirmation != "oui" && confirmation != "non") {
+        print("\x1B[31mRéponse incorrecte(oui ou non)\x1B[0m");
+      }
+    }
+    if (confirmation == "oui") {
+      return true;
+    }
+    return false;
+  }
+
   static bool confirmationAjout() {
     String confirmation = "";
     while (confirmation != "oui" && confirmation != "non") {
@@ -221,5 +287,41 @@ class AffichagePrincipal {
       return true;
     }
     return false;
+  }
+
+  static String getUser() {
+    String user = "";
+    while (user.isEmpty) {
+      print("Veuillez saisir le nom d'utilisateur");
+      user = MesFonctions.saisirString();
+    }
+    return user;
+  }
+
+  static String getPassword() {
+    print("Veuillez saisir le mot de passe");
+    stdin.echoMode = false;
+    String password = MesFonctions.saisirString();
+    stdin.echoMode = true;
+    return password;
+  }
+
+  static String getDB() {
+    String db = "";
+    while (db.isEmpty) {
+      print("Veuillez saisir le nom de la base de donnée");
+      db = MesFonctions.saisirString();
+    }
+    return db;
+  }
+
+  static void getConnexionDB() {
+    settingsCo.db = getDB();
+    settingsCo.user = getUser();
+    settingsCo.password = getPassword();
+  }
+
+  static String afficheCreation() {
+    return "\x1B[32mCréation des tables effectué\x1B[0m";
   }
 }

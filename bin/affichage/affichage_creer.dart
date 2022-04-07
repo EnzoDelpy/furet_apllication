@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import '../creer.dart';
 import 'affichage_auteur.dart';
 import 'affichage_principal.dart';

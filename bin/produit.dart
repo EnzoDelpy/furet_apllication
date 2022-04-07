@@ -17,6 +17,7 @@ class Produit {
     this._idEditeur,
   );
 
+  //Getter et Setter
   int getIdProduit() {
     return this._idProduit;
   }

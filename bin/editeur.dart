@@ -8,6 +8,7 @@ class Editeur {
   Editeur(this._idEditeur, this._nomEditeur, this._villeEditeur,
       this._cpEditeur, this._adresseEditeur);
 
+  //Getter et Setter
   int getIdediteur() {
     return this._idEditeur;
   }

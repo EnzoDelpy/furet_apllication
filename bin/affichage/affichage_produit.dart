@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import '../produit.dart';
 import 'affichage_auteur.dart';
 import 'affichage_editeur.dart';
@@ -402,7 +400,7 @@ class AffichageProduit {
       affichage = "\x1B[2J\x1B[0;0H\n";
       for (Produit elt in lesProduits) {
         affichage +=
-            "===========================================================================================================\nId du produit           : " +
+            "===========================================================================================================\nId du produit                 : " +
                 elt.getIdProduit().toString() +
                 "\nNom du produit                : " +
                 elt.getNomProduit() +

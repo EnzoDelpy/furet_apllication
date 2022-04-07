@@ -4,6 +4,7 @@ class Creer {
 
   Creer(this._idAuteur, this._idProduit);
 
+  //Getter et Setter
   int getIdAuteur() {
     return this._idAuteur;
   }
