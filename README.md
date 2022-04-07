@@ -54,22 +54,26 @@ Ce logiciel permet de :
   - une année de paruption minimum 
   - une année de paruption maximum et minimum 
   - un type  
+  
   Trier l'affichage des produits en fonction de :  
   - prix croissant
   - prix décroissant
   - année croissante
-  - année décroissante
-  Afficher les données de la table Creer en fonction de :  
+  - année décroissante  
+  
+  Afficher les données de la table Creer en fonction de :    
   - l'id d'un auteur
   - l'id d'un produit
   - nom d'un auteur
   - nom d'un produit  
+  
   Affichage des auteurs en fonction de :  
   - l'id d'un auteur
   - l'id d'un produit
   - nom d'un auteur
   - nom et prénom d'un auteur
   - nom d'un produit  
+  
   Affichage de éditeurs en fonction de :  
   - l'id d'un éditeur
   - l'id d'un produit
