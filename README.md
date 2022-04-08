@@ -4,14 +4,6 @@ Logiciel permettant de gerer une base de donnée contenant les stocks de l'entre
 
 Ce logiciel a été réalisé dans le cadre d'un projet scolaire.
 
-
-## SOMMAIRE
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Fonctionnalités](#credits)
-- [License](#license)
-
 ## Installation
 
 Tout d'abord vous devez créer une base de donnée et un utilisateur qui aura les droits sur cette base de donnée, ensuite lancez le logiciel et entrez les identifiants de la base de donnée que vous venez de créer, choisissez l'option pour créer automatiquement les tables.  
@@ -82,4 +74,4 @@ Ce logiciel permet de :
 
 ## Tests
 
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
+https://user-images.githubusercontent.com/100281318/162509369-d32f458e-3911-4b89-b3c2-ee38eb7c91de.mp4
