@@ -406,7 +406,7 @@ class MainFonction {
   }
 
   Future<void> choix1_4(GestionProduit gProduit) async {
-    int idProduit = AffichageAuteur.getIdAuteur(await getListIdAuteur());
+    int idProduit = AffichageProduit.getIdProduit(await getListIdProduit());
     if (!AffichagePrincipal.confirmationSuppression()) {
       return;
     }
