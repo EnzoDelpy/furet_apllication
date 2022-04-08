@@ -389,7 +389,7 @@ class MainFonction {
       if (!AffichagePrincipal.confirmationAjout()) {
         return;
       }
-      print(AffichagePrincipal.afficheAjoutProduit(await gProduit.ajouteProduit(
+      print(AffichagePrincipal.afficheAjout(await gProduit.ajouteProduit(
           Produit(
               0,
               lesValeurs[0],
@@ -535,7 +535,7 @@ class MainFonction {
       if (!AffichagePrincipal.confirmationAjout()) {
         return;
       }
-      print(AffichagePrincipal.afficheAjoutProduit(await gCreer.ajouteCreer(
+      print(AffichagePrincipal.afficheAjout(await gCreer.ajouteCreer(
           Creer(int.parse(lesValeurs[0]), int.parse(lesValeurs[1])))));
       await Future.delayed(Duration(seconds: 1));
     } else {

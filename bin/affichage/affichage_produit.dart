@@ -4,6 +4,7 @@ import 'affichage_editeur.dart';
 import 'fonctions.dart';
 
 class AffichageProduit {
+  //retourne un string contenant l'écran d'affichage du choix de modification
   static String afficheModifie() {
     String affichage = "\x1B[2J\x1B[0;0H\n" +
         "                 ███████ ██    ██ ██████  ███████ ████████   \n" +
@@ -35,6 +36,7 @@ class AffichageProduit {
     return affichage;
   }
 
+  //retourne un string contenant le premier écran d'affichage du choix d'affichage
   static String afficheAffiche() {
     String affichage = "\x1B[2J\x1B[0;0H\n" +
         "                 ███████ ██    ██ ██████  ███████ ████████   \n" +
@@ -68,6 +70,7 @@ class AffichageProduit {
     return affichage;
   }
 
+  //retourne un string contenant le deuxième écran d'affichage du choix d'affichage
   static String afficheAffiche2() {
     String affichage = "\x1B[2J\x1B[0;0H\n" +
         "                 ███████ ██    ██ ██████  ███████ ████████   \n" +
@@ -101,6 +104,7 @@ class AffichageProduit {
     return affichage;
   }
 
+  //retourne un string contenant le troisieme écran d'affichage du choix d'affichage
   static String afficheAffiche3() {
     String affichage = "\x1B[2J\x1B[0;0H\n" +
         "                 ███████ ██    ██ ██████  ███████ ████████   \n" +
@@ -131,6 +135,7 @@ class AffichageProduit {
     return affichage;
   }
 
+  // retourne un id de produit saisie par l'utilisateur si il est présent dans la liste donnée en paramètre
   static int getIdProduit(List<int> idProduit) {
     int id = 0;
     while (!idProduit.contains(id)) {
@@ -143,6 +148,7 @@ class AffichageProduit {
     return id;
   }
 
+  // retourne un id de produit saisie par l'utilisateur si il est présent dans la liste donnée en paramètre
   static int getNouveauIdProduit(List<int> idProduit) {
     int id = 0;
     while (!idProduit.contains(id)) {
@@ -155,6 +161,7 @@ class AffichageProduit {
     return id;
   }
 
+  // retourne un nom de produit saisie par l'utilisateur
   static String getNomProduit() {
     String type = "";
     while (type.isEmpty) {
@@ -167,6 +174,7 @@ class AffichageProduit {
     return type;
   }
 
+  // retourne un nouveau nom de produit saisie par l'utilisateur
   static String getNouveauNomProduit() {
     String type = "";
     while (type.isEmpty) {
@@ -179,6 +187,7 @@ class AffichageProduit {
     return type;
   }
 
+  // retourne une année de paruption de produit saisie par l'utilisateur
   static int getAnneeParuptionProduit() {
     int annee = 0;
     while (annee < 1) {
@@ -191,6 +200,7 @@ class AffichageProduit {
     return annee;
   }
 
+  // retourne une année de paruption minimum de produit saisie par l'utilisateur
   static int getAnneeParuptionMinProduit() {
     int annee = 0;
     while (annee < 1) {
@@ -203,6 +213,7 @@ class AffichageProduit {
     return annee;
   }
 
+  // retourne une année de paruption maximum de produit saisie par l'utilisateur
   static int getAnneeParuptionMaxProduit() {
     int annee = 0;
     while (annee < 1) {
@@ -215,6 +226,7 @@ class AffichageProduit {
     return annee;
   }
 
+  // retourne une nouvelle année de paruption de produit saisie par l'utilisateur
   static int getNouvelleAnneeParuptionProduit() {
     int annee = 0;
     while (annee < 1) {
@@ -227,6 +239,7 @@ class AffichageProduit {
     return annee;
   }
 
+  // retourne le prix d'un produit saisie par l'utilisateur
   static double getPrixProduit() {
     double prix = -1;
     while (prix < 0) {
@@ -239,6 +252,7 @@ class AffichageProduit {
     return prix;
   }
 
+  // retourne le prix maximum d'un produit saisie par l'utilisateur
   static double getPrixMaxProduit() {
     double prix = -1;
     while (prix < 0) {
@@ -251,6 +265,7 @@ class AffichageProduit {
     return prix;
   }
 
+  // retourne le prix minimum d'un produit saisie par l'utilisateur
   static double getPrixMinProduit() {
     double prix = -1;
     while (prix < 0) {
@@ -263,6 +278,7 @@ class AffichageProduit {
     return prix;
   }
 
+  // retourne le nouveau prix d'un produit saisie par l'utilisateur
   static double getNouveauPrixProduit() {
     double prix = 0;
     while (prix < 0.001) {
@@ -275,6 +291,7 @@ class AffichageProduit {
     return prix;
   }
 
+  // retourne la quantité d'un produit saisie par l'utilisateur
   static int getQuantiteProduit() {
     int quantite = -1;
     while (quantite < 0) {
@@ -288,6 +305,7 @@ class AffichageProduit {
     return quantite;
   }
 
+  // retourne la nouvelle quantité d'un produit saisie par l'utilisateur
   static int getNouvelleQuantiteProduit() {
     int quantite = -1;
     while (quantite < 0) {
@@ -301,6 +319,7 @@ class AffichageProduit {
     return quantite;
   }
 
+  // retourne le type d'un produit saisie par l'utilisateur
   static String getTypeProduit() {
     String type = "";
     while (type.isEmpty) {
@@ -313,6 +332,7 @@ class AffichageProduit {
     return type;
   }
 
+  // retourne le nouveau type d'un produit saisie par l'utilisateur
   static String getNouveauTypeProduit() {
     String type = "";
     while (type.isEmpty) {
@@ -325,6 +345,7 @@ class AffichageProduit {
     return type;
   }
 
+  // retourne une liste contenant toutes les données nécessaire pour créer un nouveau produit
   static List<String> ajouteProduit(List<int> idEditeur) {
     List<String> lesAttributs = [];
     lesAttributs.add(getNomProduit());
@@ -336,14 +357,17 @@ class AffichageProduit {
     return lesAttributs;
   }
 
+  // retourne l'id d'un produit à supprimer saisie par l'utilisateur
   static int supprimeProduit(List<int> idProduit) {
     return getIdProduit(idProduit);
   }
 
+  // retourne une liste contenant le nouveau nom d'un produit et son id
   static List<String> modifieNomProduit(List<int> idProduit) {
     return [getIdProduit(idProduit).toString(), getNouveauNomProduit()];
   }
 
+  // retourne une liste contenant la nouvelle année de paruption d'un produit et son id
   static List<String> modifieAnneeProduit(List<int> idProduit) {
     return [
       getIdProduit(idProduit).toString(),
@@ -351,6 +375,7 @@ class AffichageProduit {
     ];
   }
 
+  // retourne une liste contenant le nouveau prix d'un produit et son id
   static List<String> modifiePrixProduit(List<int> idProduit) {
     return [
       getIdProduit(idProduit).toString(),
@@ -358,6 +383,7 @@ class AffichageProduit {
     ];
   }
 
+  // retourne une liste contenant la nouvelle quantité d'un produit et son id
   static List<String> modifieQuantiteProduit(List<int> idProduit) {
     return [
       getIdProduit(idProduit).toString(),
@@ -365,10 +391,12 @@ class AffichageProduit {
     ];
   }
 
+  // retourne une liste contenant le nouveau type d'un produit et son id
   static List<String> modifieTypeProduit(List<int> idProduit) {
     return [getIdProduit(idProduit).toString(), getNouveauTypeProduit()];
   }
 
+  // retourne une liste contenant le nouveau id d'éditeur associé à un produit et son id
   static List<String> modifieIdEditeur(
       List<int> idProduit, List<int> idEditeur) {
     return [
@@ -377,22 +405,27 @@ class AffichageProduit {
     ];
   }
 
+  //retourne une liste contenant l'id de produit saisie par un utilisateur
   static List<int> afficheProduitParId(List<int> idProduit) {
     return [getIdProduit(idProduit)];
   }
 
+  //retourne une liste contenant l'id d'éditeur saisie par un utilisateur
   static List<int> afficheProduitParIdEditeur(List<int> idEditeur) {
     return [AffichageEditeur.getIdEditeur(idEditeur)];
   }
 
+  //retourne une liste contenant l'id d'auteur saisir par un utilisateur
   static List<int> afficheProduitParIdAuteur(List<int> idAuteur) {
     return [AffichageAuteur.getIdAuteur(idAuteur)];
   }
 
+  //retourne un nom de produit saisie par l'utilisateur
   static String afficheProduitParNom() {
     return getNomProduit();
   }
 
+  //retourne un string contenant l'affichage des produits donnés en paramètre
   static String afficheListeProduit(List<Produit> lesProduits) {
     String affichage =
         "\x1B[2J\x1B[0;0H\x1B[31mAucune donnée trouvé\x1B[0m\n\n1. Revenir au menu principal";

@@ -1,5 +1,5 @@
 import 'package:mysql1/mysql1.dart';
-import 'settingsConnexion.dart' as settingsco;
+import 'settings_connexion.dart' as settingsco;
 
 class BDD {
   late ConnectionSettings settings;

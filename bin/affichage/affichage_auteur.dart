@@ -3,6 +3,7 @@ import 'affichage_produit.dart';
 import 'fonctions.dart';
 
 class AffichageAuteur {
+  //retourne un string contenant le premier écran d'affichage du choix d'affichage
   static String afficheAffiche() {
     String affichage = "\x1B[2J\x1B[0;0H\n" +
         "                 ███████ ██    ██ ██████  ███████ ████████   \n" +
@@ -34,6 +35,7 @@ class AffichageAuteur {
     return affichage;
   }
 
+  //retourne un id d'auteur choisi par l'utilisateur qui est présent dans la liste donnée en paramètre
   static int getIdAuteur(List<int> idAuteur) {
     int id = 0;
     while (!idAuteur.contains(id)) {
@@ -46,6 +48,7 @@ class AffichageAuteur {
     return id;
   }
 
+  //retourne un nouveau id d'auteur choisi par l'utilisateur qui est présent dans la liste donnée en paramètre
   static int getNouveauIdAuteur(List<int> idAuteur) {
     int id = 0;
     while (!idAuteur.contains(id)) {
@@ -58,6 +61,7 @@ class AffichageAuteur {
     return id;
   }
 
+  //retourne un nom d'auteur saisi par l'utilisateur
   static String getNomAuteur() {
     String nomAuteur = "";
     while (nomAuteur.isEmpty) {
@@ -70,6 +74,7 @@ class AffichageAuteur {
     return nomAuteur;
   }
 
+  //retourne un nouveau nom d'auteur saisi par l'utilisateur
   static String getNouveauNomAuteur() {
     String nomAuteur = "";
     while (nomAuteur.isEmpty) {
@@ -82,6 +87,7 @@ class AffichageAuteur {
     return nomAuteur;
   }
 
+  //retourne un prénom d'auteur saisi par l'utilisateur
   static String getPrenomAuteur() {
     String prenomAuteur = "";
     while (prenomAuteur.isEmpty) {
@@ -94,6 +100,7 @@ class AffichageAuteur {
     return prenomAuteur;
   }
 
+  //retourne un nouveau prénom d'auteur saisi par l'utilisateur
   static String getNouveauPrenomAuteur() {
     String prenomAuteur = "";
     while (prenomAuteur.isEmpty) {
@@ -106,6 +113,7 @@ class AffichageAuteur {
     return prenomAuteur;
   }
 
+  //retourne une liste contenant les données necessaire pour ajouter un nouveau auteur
   static List<String> ajouteAuteur() {
     List<String> lesAttributs = [];
     lesAttributs.add(getNomAuteur());
@@ -113,10 +121,12 @@ class AffichageAuteur {
     return lesAttributs;
   }
 
+  //retourne l'id d'un auteur à supprimé saisie par l'utilisateur
   static int supprimeAuteur(List<int> idAuteur) {
     return getIdAuteur(idAuteur);
   }
 
+  //retourne un string contenant l'écran d'affichage du choix de modification
   static String afficheModifie() {
     String affichage = "\x1B[2J\x1B[0;0H\n" +
         "                 ███████ ██    ██ ██████  ███████ ████████   \n" +
@@ -144,6 +154,7 @@ class AffichageAuteur {
     return affichage;
   }
 
+  //retourune une liste contenant un nouveau nom d'auteur et l'id d'auteur choisi par l'utilisateur
   static List<String> modifieNomAuteur(List<int> idAuteur) {
     List<String> lesAttributs = [];
     lesAttributs.add(getIdAuteur(idAuteur).toString());
@@ -151,6 +162,7 @@ class AffichageAuteur {
     return lesAttributs;
   }
 
+  //retourune une liste contenant un nouveau prénom d'auteur et l'id d'auteur choisi par l'utilisateur
   static List<String> modifiePrenomAuteur(List<int> idAuteur) {
     List<String> lesAttributs = [];
     lesAttributs.add(getIdAuteur(idAuteur).toString());
@@ -158,30 +170,37 @@ class AffichageAuteur {
     return lesAttributs;
   }
 
+  //retourune une liste contenant l'id d'auteur choisi par l'utilisateur
   static List<int> afficheAuteurParId(List<int> idAuteur) {
     return [getIdAuteur(idAuteur)];
   }
 
+  //retourune une liste contenant l'id de produit d'auteur choisi par l'utilisateur
   static List<int> afficheAuteurParIdProduit(List<int> idProduit) {
     return [AffichageProduit.getIdProduit(idProduit)];
   }
 
+  //retourne le nom de produit choisi par l'utilisateur
   static String afficheAuteurParNomProduit() {
     return AffichageProduit.getNomProduit();
   }
 
+  //retourne le nom d'auteur choisi par l'utilisateur
   static String afficheAuteurParNom() {
     return getNomAuteur();
   }
 
+  //retourne le prénom d'auteur choisi par l'utilisateur
   static String afficheAuteurParPrenom() {
     return getPrenomAuteur();
   }
 
+  //retourne une liste contenant le prénom et nom d'auteur choisi par l'utilisateur
   static List<String> afficheAuteurParNomPrenom() {
     return [getNomAuteur(), getPrenomAuteur()];
   }
 
+  //retourne un string contenant l'affichage des auteurs en paramètre
   static String afficheListeAuteur(List<Auteur> lesAuteurs) {
     String affichage =
         "\x1B[2J\x1B[0;0H\x1B[31mAucune donnée trouvé\x1B[0m\n\n1. Revenir au menu principal";

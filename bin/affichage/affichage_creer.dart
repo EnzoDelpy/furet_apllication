@@ -5,6 +5,7 @@ import 'affichage_produit.dart';
 import 'fonctions.dart';
 
 class AffichageCreer {
+  //retourne un string contenant le premier écran d'affichage du choix d'affichage
   static String afficheAffiche() {
     String affichage = "\x1B[2J\x1B[0;0H\n" +
         "                 ███████ ██    ██ ██████  ███████ ████████   \n" +
@@ -35,6 +36,7 @@ class AffichageCreer {
     return affichage;
   }
 
+  //retourne une liste contenant contenant toutes les données pour ajouter une valeur à la table Creer
   static List<String> ajouteCreer(List<int> idAuteur, List<int> idProduit) {
     List<String> lesAttributs = [];
     lesAttributs.add(AffichageAuteur.getIdAuteur(idAuteur).toString());
@@ -42,6 +44,7 @@ class AffichageCreer {
     return lesAttributs;
   }
 
+  //retourne une liste contenant la clé primaire  de la valeur à supprimé saisie par l'utilisateur
   static List<int> supprimeAuteur(List<int> idAuteur, List<int> idProduit) {
     return [
       AffichageAuteur.getIdAuteur(idAuteur),
@@ -49,6 +52,7 @@ class AffichageCreer {
     ];
   }
 
+  //retourne une liste contenant la clé primaire et l'id d'auteur de la valeur à modifié saisie par l'utilisateur
   static List<int> modifieAuteur(List<int> idAuteur, List<int> idProduit) {
     return [
       AffichageAuteur.getIdAuteur(idAuteur),
@@ -57,6 +61,7 @@ class AffichageCreer {
     ];
   }
 
+  //retourne une liste contenant la clé primaire et l'id de produit de la valeur à modifié saisie par l'utilisateur
   static List<int> modifieProduit(List<int> idAuteur, List<int> idProduit) {
     return [
       AffichageAuteur.getIdAuteur(idAuteur),
@@ -65,6 +70,7 @@ class AffichageCreer {
     ];
   }
 
+  //retourne un string contenant l'écran d'affichage du choix de modification
   static String afficheModifie() {
     String affichage = "\x1B[2J\x1B[0;0H\n" +
         "                 ███████ ██    ██ ██████  ███████ ████████   \n" +
@@ -92,22 +98,27 @@ class AffichageCreer {
     return affichage;
   }
 
+  //retourne une liste contenant l'id d'auteur saisie par l'utilisateur
   static List<int> afficheCreerParIdAuteur(List<int> idAuteur) {
     return [AffichageAuteur.getIdAuteur(idAuteur)];
   }
 
+  //retourne une liste contenant l'id de produit saisie par l'utilisateur
   static List<int> afficheCreerParIdProduit(List<int> idProduit) {
     return [AffichageProduit.getIdProduit(idProduit)];
   }
 
+  //retourne le nom de produit saisie par l'utilisateur
   static String afficheCreerParNomProduit() {
     return AffichageProduit.getNomProduit();
   }
 
+  //retourne le nom d'auteur saisie par l'utilisateur
   static String afficheCreerParNomAuteur() {
     return AffichageAuteur.getNomAuteur();
   }
 
+  //retourne un string contenant l'affichage des valeurs données en paramètre
   static String afficheListeCreer(List<Creer> lesAuteurs) {
     String affichage =
         "\x1B[2J\x1B[0;0H\x1B[31mAucune donnée trouvé\x1B[0m\n\n1. Revenir au menu principal";
