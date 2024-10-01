@@ -71,7 +71,3 @@ Ce logiciel permet de :
   - l'id d'un produit
   - nom d'un éditeur
   - nom d'un produit
-
-## Tests
-
-https://user-images.githubusercontent.com/100281318/162509369-d32f458e-3911-4b89-b3c2-ee38eb7c91de.mp4
